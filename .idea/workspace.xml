@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fcb477f-1228-4755-aa66-2723b646746e" name="Changes" comment="" />
+    <list default="true" id="4fcb477f-1228-4755-aa66-2723b646746e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EjerciciosEnClase/src/main/java/ar/edu/utnfc/backend/EjercicioVehiculos/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjerciciosEnClase/src/main/java/ar/edu/utnfc/backend/App2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjerciciosEnClase/src/main/java/ar/edu/utnfc/backend/Matriz.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,8 +17,15 @@
   </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
+      <entry key="_C:/Users/Usuario/Desktop/BackEnd/BackEnd3k5A/BackEnd3k5A" value="3C67fLPkA1bq2Iucu4Pf47Eu7IY" />
       <entry key="_C:/Users/juanc/OneDrive/Documentos/BackEnd3k5A" value="3Bjnk7Aq8fyrXAiqT7d3bUhucgR" />
     </persistenceIdMap>
+  </component>
+  <component name="CopilotUserSelectedModel">
+    <selectedModels>
+      <entry key="chat-panel" value="Claude Haiku 4.5" />
+      <entry key="agent-panel" value="Claude Haiku 4.5" />
+    </selectedModels>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -56,19 +68,25 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/juanc/OneDrive/Documentos/BackEnd3k5A",
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/BackEnd/BackEnd3k5A/BackEnd3k5A",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Desktop\BackEnd\BackEnd3k5A\BackEnd3k5A\EjerciciosEnClase\src\main\java\ar\edu\utnfc\backend\EjercicioVehiculos" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ar.edu.utnfc.backend" />
     </key>
