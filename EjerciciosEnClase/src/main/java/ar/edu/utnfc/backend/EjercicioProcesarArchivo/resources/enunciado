@@ -1,0 +1,362 @@
+# Manejo de archivos CSV en Java
+
+Ejercicios progresivos para aprender a leer, procesar y escribir archivos CSV usando Java.
+
+## Requisitos previos
+
+- Java 26 (JDK)
+- Maven
+- Un IDE (IntelliJ IDEA recomendado)
+
+## Estructura del proyecto
+
+```
+fileReader/
+├── data/
+│   └── catalogo_streaming.csv          ← Archivo de datos (ya incluido)
+├── src/main/java/org/example/
+│   ├── catalog/                        ← Leccion 1: Lectura de archivos
+│   │   ├── Main.java
+│   │   └── Serie.java
+│   ├── catalog2/                       ← Leccion 2: Escritura de archivos
+│   │   ├── Main.java
+│   │   └── Serie.java
+│   └── catalog3/                       ← Leccion 3: Eliminar y actualizar datos
+│       ├── Main.java
+│       └── Serie.java
+├── pom.xml
+└── README.md
+```
+
+El archivo `catalogo_streaming.csv` contiene un catálogo de 15 series de streaming con las columnas:
+**titulo, genero, plataforma, anio, temporadas, calificacion**
+
+---
+
+# Leccion 1: Lectura de archivos CSV
+
+> Paquete: `org.example.catalog`
+
+En esta lección vas a aprender a abrir un archivo CSV, leer su contenido línea por línea y transformar los datos en objetos Java.
+
+---
+
+## Ejercicio 1: Contar las filas del archivo
+
+**Objetivo:** Abrir un archivo CSV y contar cuántas filas de datos tiene (excluyendo el encabezado).
+
+**Conceptos que vas a practicar:**
+- `BufferedReader` y `FileReader` para leer archivos
+- Lectura línea por línea con un `while`
+- Manejo de excepciones con `try-catch`
+
+**Instrucciones:**
+1. Creá un `BufferedReader` que abra el archivo `data/catalogo_streaming.csv`
+2. Leé línea por línea con `readLine()` dentro de un `while` (el ciclo termina cuando `readLine()` devuelve `null`)
+3. Usá un contador para contar las líneas leídas
+4. Restale 1 al total para no contar la fila de encabezado
+5. Mostrá el resultado por pantalla
+6. Envolvé todo en un `try-catch` para manejar posibles errores de lectura (`IOException`)
+
+**Salida esperada:**
+```
+El archivo tiene 15 filas de datos.
+```
+
+**Tips:**
+- `readLine()` devuelve `null` cuando no hay más líneas para leer
+- No te olvides de importar `java.io.BufferedReader`, `java.io.FileReader` y `java.io.IOException`
+
+---
+
+## Ejercicio 2: Mostrar cada fila parseada
+
+**Objetivo:** Separar cada línea del CSV en sus campos individuales y mostrarlos de forma legible.
+
+**Conceptos que vas a practicar:**
+- `String.split(",")` para separar campos
+- Acceso a posiciones de un array de Strings
+- Formateo de salida por pantalla
+
+**Instrucciones:**
+1. Partí del código del Ejercicio 1
+2. La primera línea que leés es el encabezado: leela por separado con un `readLine()` antes del `while`
+3. Dentro del `while`, usá `split(",")` para separar cada línea en un array de Strings
+4. Mostrá los campos con nombres descriptivos (Titulo, Genero, Plataforma, etc.)
+5. Mantené el conteo de filas y mostralo al final
+
+**Salida esperada:**
+```
+Titulo: Stranger Things | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2016 | Temporadas: 4 | Calificacion: 8.7
+Titulo: The Last of Us | Genero: Drama | Plataforma: HBO Max | Anio: 2023 | Temporadas: 2 | Calificacion: 8.8
+...
+El archivo tiene 15 filas de datos.
+```
+
+**Tips:**
+- `split(",")` devuelve un `String[]` — accedés a cada campo con `campos[0]`, `campos[1]`, etc.
+- El orden de las columnas es: titulo(0), genero(1), plataforma(2), anio(3), temporadas(4), calificacion(5)
+
+---
+
+## Ejercicio 3: Crear una clase Serie (POO)
+
+**Objetivo:** Representar cada serie como un objeto usando una clase propia, y almacenar todas las series en una lista.
+
+**Conceptos que vas a practicar:**
+- Crear una clase con atributos privados, constructor y getters
+- Sobreescribir `toString()`
+- Usar `ArrayList` para almacenar objetos
+- Convertir Strings a `int` y `double` (`Integer.parseInt()`, `Double.parseDouble()`)
+
+**Instrucciones:**
+
+**Paso 1 — Crear la clase `Serie.java`** (en el paquete `org.example.catalog`):
+1. Definí 6 atributos privados: `titulo` (String), `genero` (String), `plataforma` (String), `anio` (int), `temporadas` (int), `calificacion` (double)
+2. Creá un constructor que reciba todos los campos
+3. Generá un getter para cada atributo
+4. Sobreescribí el método `toString()` para que devuelva algo legible (similar a la salida del Ejercicio 2)
+
+**Paso 2 — Modificar `Main.java`:**
+1. Partí del código del Ejercicio 2
+2. Creá un `ArrayList<Serie>` antes del `while`
+3. Dentro del `while`, convertí los campos numéricos con `Integer.parseInt()` y `Double.parseDouble()`
+4. Creá un objeto `Serie` con los datos de cada línea y agregalo a la lista con `add()`
+5. Después del `while`, recorré la lista con un `for-each` e imprimí cada serie
+
+**Salida esperada:**
+```
+=== Catalogo de Series ===
+
+Titulo: Stranger Things | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2016 | Temporadas: 4 | Calificacion: 8.7
+Titulo: The Last of Us | Genero: Drama | Plataforma: HBO Max | Anio: 2023 | Temporadas: 2 | Calificacion: 8.8
+...
+
+Total de series: 15
+```
+
+**Tips:**
+- No te olvides de importar `java.util.ArrayList`
+- `Integer.parseInt("2016")` convierte el String `"2016"` al entero `2016`
+- `Double.parseDouble("8.7")` convierte el String `"8.7"` al double `8.7`
+
+---
+
+# Leccion 2: Escritura de archivos CSV
+
+> Paquete: `org.example.catalog2`
+
+En esta lección vas a aprender a **escribir datos nuevos al final de un archivo CSV existente**. Partimos del código de la Lección 1 y le agregamos la capacidad de insertar nuevas filas.
+
+---
+
+## Ejercicio 4: Agregar nuevas series al archivo CSV
+
+**Objetivo:** Escribir nuevas filas al final del archivo CSV sin perder los datos existentes, y verificar que se agregaron correctamente.
+
+**Conceptos que vas a practicar:**
+- `FileWriter` con modo **append** (agregar al final)
+- `PrintWriter` para escribir líneas de texto
+- Método `toCsv()` para convertir un objeto a formato CSV
+- Extraer lógica en métodos (`leerSeries`, `agregarSeries`)
+- Releer el archivo para verificar los cambios
+
+**Instrucciones:**
+
+**Paso 1 — Copiar la clase `Serie.java`** al paquete `org.example.catalog2`:
+1. Copiá la clase `Serie` de la Lección 1
+2. Agregale un nuevo método `toCsv()` que devuelva los atributos separados por coma, en el mismo orden que las columnas del archivo: `titulo,genero,plataforma,anio,temporadas,calificacion`
+3. Este método es el inverso del parseo: convierte el objeto de vuelta a una línea CSV
+
+**Paso 2 — Crear un método `leerSeries`:**
+1. Extraé la lógica de lectura del archivo a un método estático `leerSeries(String archivo)` que devuelva un `ArrayList<Serie>`
+2. El método recibe la ruta del archivo como parámetro
+3. Esto te permite reutilizar la lectura sin duplicar código
+
+**Paso 3 — Crear un método `agregarSeries`:**
+1. Creá un método estático `agregarSeries(String archivo, ArrayList<Serie> nuevasSeries)`
+2. Usá `FileWriter` con el segundo parámetro en `true` para activar el modo **append** — esto hace que los datos nuevos se escriban al final del archivo, sin borrar lo existente
+3. Envolvé el `FileWriter` en un `PrintWriter` para poder usar `println()` y escribir líneas completas
+4. Recorré la lista de nuevas series y escribí cada una usando el método `toCsv()`
+5. No te olvides de cerrar el `PrintWriter` al terminar
+
+**Paso 4 — Armar el `main`:**
+1. Leé las series existentes con `leerSeries` y mostralas por pantalla
+2. Creá un `ArrayList` con algunas series nuevas (por ejemplo: "Dark", "The Witcher", "Fallout")
+3. Llamá a `agregarSeries` para escribirlas al final del archivo
+4. Volvé a leer el archivo con `leerSeries` y mostrá el catálogo actualizado para verificar que las nuevas series se agregaron correctamente
+
+**Salida esperada:**
+```
+=== Catalogo de Series (antes de agregar) ===
+
+Titulo: Stranger Things | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2016 | Temporadas: 4 | Calificacion: 8.7
+...
+
+Total de series: 15
+
+Se agregaron 3 series al archivo.
+
+=== Catalogo de Series (despues de agregar) ===
+
+Titulo: Stranger Things | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2016 | Temporadas: 4 | Calificacion: 8.7
+...
+Titulo: Dark | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2017 | Temporadas: 3 | Calificacion: 8.8
+Titulo: The Witcher | Genero: Fantasia | Plataforma: Netflix | Anio: 2019 | Temporadas: 3 | Calificacion: 8.2
+Titulo: Fallout | Genero: Ciencia Ficcion | Plataforma: Amazon Prime | Anio: 2024 | Temporadas: 1 | Calificacion: 8.5
+
+Total de series: 18
+```
+
+**Tips:**
+- `new FileWriter("archivo.csv", true)` — el `true` es clave: activa el modo append. Sin él, se sobreescribe todo el archivo
+- `PrintWriter` es un wrapper sobre `FileWriter` que facilita escribir líneas con `println()`
+- Siempre cerrá los writers (`pw.close()`) para asegurar que los datos se guarden en disco
+- Después de escribir, releé el archivo para verificar que los cambios se guardaron bien
+
+> **Importante:** Cada vez que ejecutes este programa, se van a agregar 3 series más al archivo. Si querés volver al estado original, restaurá el archivo `catalogo_streaming.csv` desde el control de versiones.
+
+---
+
+# Leccion 3: Eliminar y actualizar datos en un CSV
+
+> Paquete: `org.example.catalog3`
+
+En esta lección vas a aprender a **eliminar** y **actualizar** registros de un archivo CSV. A diferencia de una base de datos, un archivo CSV no permite modificar una fila puntual: hay que leer todo el contenido a memoria, hacer los cambios sobre la lista, y **reescribir el archivo completo**. Este es un concepto clave para entender la diferencia entre archivos planos y bases de datos.
+
+---
+
+## Ejercicio 5: Eliminar una serie del archivo CSV
+
+**Objetivo:** Buscar una serie por título y eliminarla del archivo, reescribiendo el CSV sin esa fila.
+
+**Conceptos que vas a practicar:**
+- Buscar un elemento en un `ArrayList` recorriendo con un `for` clásico (con índice)
+- Eliminar un elemento con `ArrayList.remove(i)`
+- Reescribir un archivo completo con `FileWriter` (sin modo append)
+- Comparación de Strings con `equalsIgnoreCase()`
+
+**Instrucciones:**
+
+**Paso 1 — Copiar `Serie.java`** al paquete `org.example.catalog3`:
+1. Copiá la clase `Serie` de la Lección 2 (la que ya tiene `toCsv()`)
+2. Agregale **setters** para los atributos que puedan cambiar: `genero`, `plataforma`, `anio`, `temporadas`, `calificacion` (los vas a necesitar en el Ejercicio 6)
+3. El `titulo` no lleva setter porque lo vamos a usar como identificador para buscar series
+
+**Paso 2 — Crear un método `guardarSeries`:**
+1. Creá un método estático `guardarSeries(String archivo, ArrayList<Serie> series)` que **reescriba todo el archivo**
+2. Usá `new FileWriter(archivo)` — esta vez **sin** el `true`, para que sobreescriba el contenido
+3. Primero escribí la línea de encabezado: `titulo,genero,plataforma,anio,temporadas,calificacion`
+4. Después recorré la lista y escribí cada serie con `toCsv()`
+5. Este método es la diferencia clave con la Lección 2: en vez de agregar al final, reemplazamos todo
+
+**Paso 3 — Crear un método `eliminarSerie`:**
+1. Creá un método estático `eliminarSerie(ArrayList<Serie> series, String titulo)` que devuelva `boolean`
+2. Recorré la lista con un `for` clásico (con índice `i`)
+3. Compará el título de cada serie usando `equalsIgnoreCase()` para que no importe mayúsculas/minúsculas
+4. Si encontrás la serie, eliminala con `series.remove(i)` y devolvé `true`
+5. Si recorrés toda la lista sin encontrarla, devolvé `false`
+
+**Paso 4 — Armar el `main` (primera parte):**
+1. Leé las series y mostralas
+2. Llamá a `eliminarSerie` pasando el título "Euphoria"
+3. Mostrá un mensaje indicando si se eliminó o no
+4. Llamá a `guardarSeries` para persistir los cambios
+5. Releé el archivo y mostrá el catálogo actualizado para verificar
+
+**Salida esperada (eliminar):**
+```
+=== Catalogo de Series (original) ===
+
+Titulo: Stranger Things | Genero: Ciencia Ficcion | Plataforma: Netflix | Anio: 2016 | Temporadas: 4 | Calificacion: 8.7
+...
+Titulo: Euphoria | Genero: Drama | Plataforma: HBO Max | Anio: 2019 | Temporadas: 2 | Calificacion: 8.4
+...
+
+Total de series: 18
+
+Serie 'Euphoria' eliminada.
+
+=== Catalogo de Series (despues de eliminar) ===
+
+...
+
+Total de series: 17
+```
+
+**Tips:**
+- Usá un `for` con índice (`for (int i = 0; ...)`) en vez de un `for-each` cuando necesitás eliminar elementos, para poder usar `remove(i)`
+- `equalsIgnoreCase()` compara Strings ignorando mayúsculas y minúsculas: `"euphoria".equalsIgnoreCase("Euphoria")` devuelve `true`
+- `FileWriter(archivo)` sin `true` sobreescribe el archivo — no te olvides de escribir el encabezado antes de las series
+
+---
+
+## Ejercicio 6: Actualizar una serie existente
+
+**Objetivo:** Buscar una serie por título, modificar algunos de sus datos y guardar los cambios en el archivo.
+
+**Conceptos que vas a practicar:**
+- Usar **setters** para modificar atributos de un objeto
+- Buscar un objeto en una lista y mutarlo en memoria
+- Persistir cambios reescribiendo el archivo
+
+**Instrucciones:**
+
+**Paso 1 — Crear un método `actualizarSerie`:**
+1. Creá un método estático `actualizarSerie(ArrayList<Serie> series, String titulo, int nuevasTemporadas, double nuevaCalificacion)` que devuelva `boolean`
+2. Recorré la lista con un `for-each`
+3. Cuando encuentres la serie con ese título (usando `equalsIgnoreCase`), usá los setters para cambiar `temporadas` y `calificacion`
+4. Devolvé `true` si la encontraste, `false` si no
+
+**Paso 2 — Completar el `main`:**
+1. Después de eliminar, llamá a `actualizarSerie` para actualizar "Arcane" con 3 temporadas y calificación 9.2
+2. Mostrá un mensaje indicando si se actualizó o no
+3. Llamá a `guardarSeries` para persistir los cambios
+4. Releé el archivo y mostrá el catálogo final
+
+**Salida esperada (actualizar):**
+```
+Serie 'Arcane' actualizada.
+
+=== Catalogo de Series (despues de actualizar) ===
+
+...
+Titulo: Arcane | Genero: Animacion | Plataforma: Netflix | Anio: 2021 | Temporadas: 3 | Calificacion: 9.2
+...
+
+Total de series: 17
+```
+
+**Tips:**
+- A diferencia de eliminar, para actualizar podés usar un `for-each` porque no estás cambiando el tamaño de la lista, solo modificando un objeto que ya está adentro
+- Los setters permiten cambiar atributos individuales sin necesidad de crear un objeto nuevo
+- Recordá que los objetos en el `ArrayList` son referencias: al modificar el objeto con un setter, el cambio se refleja automáticamente en la lista
+
+> **Importante:** Cada vez que ejecutes este programa, se van a aplicar los cambios sobre el archivo. Si querés volver al estado original, restaurá el archivo `catalogo_streaming.csv` desde el control de versiones.
+
+---
+
+## Cómo ejecutar
+
+Desde la raíz del proyecto, elegí la lección que querés ejecutar:
+
+**Lección 1 — Lectura:**
+```bash
+mvn compile exec:java -Dexec.mainClass="org.example.catalog.Main"
+```
+
+**Lección 2 — Escritura:**
+```bash
+mvn compile exec:java -Dexec.mainClass="org.example.catalog2.Main"
+```
+
+**Lección 3 — Eliminar y actualizar:**
+```bash
+mvn compile exec:java -Dexec.mainClass="org.example.catalog3.Main"
+```
+
+O directamente desde tu IDE ejecutando la clase `Main` del paquete correspondiente.
+
+---
+
+> **Nota:** Cada lección tiene su propio paquete para que puedas trabajar en cada una de forma independiente. Dentro de cada lección, los ejercicios se construyen de forma progresiva.

@@ -1,2 +1,10 @@
 ar\edu\utnfc\backend\App2.class
+ar\edu\utnfc\backend\EjercicioVehiculos\Vehiculos.class
+ar\edu\utnfc\backend\EjercicioVehiculos\Camiones.class
+ar\edu\utnfc\backend\EjercicioProcesarArchivo\Series.class
 ar\edu\utnfc\backend\Matriz.class
+ar\edu\utnfc\backend\EjercicioProcesarArchivo\Main.class
+ar\edu\utnfc\backend\EjercicioVehiculos\EspacioEstacionamiento.class
+ar\edu\utnfc\backend\EjercicioVehiculos\Main.class
+ar\edu\utnfc\backend\EjercicioVehiculos\Motos.class
+ar\edu\utnfc\backend\EjercicioVehiculos\Autos.class

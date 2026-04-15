@@ -6,12 +6,13 @@
   <groupId>ar.edu.utnfc.backend</groupId>
   <artifactId>EjerciciosEnClase</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-  <name>EjerciciosEnClase</name>
+    <name>EjerciciosEnClase</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
+    <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
     <lombok.version>1.18.34</lombok.version>
