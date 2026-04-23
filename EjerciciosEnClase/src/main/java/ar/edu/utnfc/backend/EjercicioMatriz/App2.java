@@ -1,4 +1,4 @@
-package ar.edu.utnfc.backend;
+package ar.edu.utnfc.backend.EjercicioMatriz;
 
 public class App2 {
     public static void main(String[] args) {
