@@ -1,0 +1,5 @@
+isbn,titulo,nroEstante,paginas,precioPorDia,autorId,autorNombre,autorApellido,autorAniosCarrera
+978-9876543210,Patrones de Diseño,24,380,1.75,A-102,Lucia,Perez,19
+978-9501234567,Arquitectura Limpia,11,420,2.10,A-077,Carlos,Gomez,22
+978-9998887776,Introducción a Java,8,300,1.20,A-201,Ana,Lopez,15
+978-1234567890,Algoritmos,16,510,2.50,A-150,Mariano,Ruiz,30

@@ -1,8 +1,18 @@
 package ar.edu.utnfc.backend.Ejercicio2;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Puerto {
 
-    public Puerto(){}
+    private Barco barco;
+
 
 
 }

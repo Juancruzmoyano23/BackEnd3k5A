@@ -5,7 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fcb477f-1228-4755-aa66-2723b646746e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Capitan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio3/CafeteraInteligente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio4/Autor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio4/Libro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio4/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio5/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio5/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio6/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio6/Viaje.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Barco.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Barco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Puerto.java" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/src/main/java/ar/edu/utnfc/backend/Ejercicio2/Puerto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Barco.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Barco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Puerto.class" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/target/classes/ar/edu/utnfc/backend/Ejercicio2/Puerto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EjercicioBloque3/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/EjercicioBloque3/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +35,7 @@
     <persistenceIdMap>
       <entry key="_C:/Users/Usuario/Desktop/BackEnd/BackEnd3k5A/BackEnd3k5A" value="3C67fLPkA1bq2Iucu4Pf47Eu7IY" />
       <entry key="_C:/Users/juanc/OneDrive/Documentos/BackEnd3k5A" value="3Bjnk7Aq8fyrXAiqT7d3bUhucgR" />
+      <entry key="_C:/Users/juanc/OneDrive/Escritorio/BackEnd3k5A" value="3Cmv7NSe752TkhEqpWI7GF2RRio" />
     </persistenceIdMap>
   </component>
   <component name="CopilotUserSelectedModel">
@@ -68,7 +88,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/BackEnd/BackEnd3k5A/BackEnd3k5A&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/juanc/OneDrive/Escritorio/BackEnd3k5A&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
