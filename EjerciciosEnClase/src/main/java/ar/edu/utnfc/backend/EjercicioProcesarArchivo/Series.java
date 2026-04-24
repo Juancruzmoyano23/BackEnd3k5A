@@ -58,7 +58,7 @@ public class Series {
         return "Titulo: " + titulo + " Genero: " + genero + " Plataforma: " + plataforma + " Año: " + anio + " Calificacion: " + calificacion + " Temporada: " + temporada;
     }
 
-    public static String toCsv(ArrayList<Series> seriesArray) {
+    public static String toCsv(ArrayList<Series> seriesArray)   {
         StringBuilder sb = new StringBuilder();
         for (Series serie : seriesArray) {
             sb.append(serie.getTtitulo()).append(",")

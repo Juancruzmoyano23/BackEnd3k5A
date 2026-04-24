@@ -1,4 +1,4 @@
-package ar.edu.utnfc.backend;
+package ar.edu.utnfc.backend.EjercicioMatriz;
 
 import java.util.Arrays;
 import java.util.Scanner;
