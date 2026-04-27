@@ -20,5 +20,9 @@ public class Maritimo extends Viaje {
         this.costoPorKilo = costoPorKilo;
         this.pesoTransportado = pesoTransportado;
     }
+
+    public double costoTotalDeViaje(){
+        return this.costoPorKilo * this.pesoTransportado;
+    }
 }
 

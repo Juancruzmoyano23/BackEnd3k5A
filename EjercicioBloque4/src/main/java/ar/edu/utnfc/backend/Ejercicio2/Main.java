@@ -16,6 +16,10 @@ public class Main {
         String csv = "Data/viajes.csv";
         Map<String, Cliente> clientesPorCuit = new HashMap<>();
         Collection<Viaje> viajes = new ArrayList<>();
+        int ctClientes = 0;
+        int sumMillas = 0;
+        int sumContenedores = 0;
+        long total = 0;
 
         try (BufferedReader br = Files.newBufferedReader(Path.of(csv))){
 
@@ -49,8 +53,8 @@ public class Main {
                 String cuit = values[12];
 
                 Cliente cliente = clientesPorCuit.computeIfAbsent(cuit, clave -> new Cliente(nombreEmpresa, clave));
-
                 Viaje viaje;
+
                 switch (tipo) {
                     case 1:
                         viaje = new Aereo(codigo, nroReserva, precio, tipo, cliente, millasAcumuladas, codAerolinea);
@@ -72,5 +76,29 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        for (String cuit : clientesPorCuit.keySet()){
+            ctClientes++;
+        }
+
+        for (Viaje v : viajes){
+            if (v instanceof Aereo aereo){
+                sumMillas += ((Aereo) v).getMillasAcumuladas();
+            }
+
+            if (v instanceof Maritimo maritimo){
+                sumContenedores += ((Maritimo) v).getCantidadContenedores();
+                if (maritimo.getCantidadContenedores() >= 5){
+                    total += maritimo.costoTotalDeViaje();
+                }
+            }
+        }
+
+        System.out.println("Cantidad de clientes distintos: " + ctClientes);
+        System.out.println("Cantidad total de millas: " + sumMillas);
+        System.out.println("Cantidad total de contenedores: " + sumContenedores);
+        System.out.println("Cos total de viaje: " + total);
+
+
     }
 }
