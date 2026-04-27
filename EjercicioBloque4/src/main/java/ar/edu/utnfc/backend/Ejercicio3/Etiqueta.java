@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Etiqueta {
 
     private String nombre;
