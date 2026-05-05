@@ -15,6 +15,9 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
+
+    // metodos de categoria
+
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
