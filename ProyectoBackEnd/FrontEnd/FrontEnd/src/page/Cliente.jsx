@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import {listarClientes, guardarCliente, eliminarCliente} from "../Service/ClienteService";
+import {listarClientes, guardarCliente, eliminarCliente, buscarCliente, actualizarCliente} from "../Service/ClienteService";
 
 function Clientes() {
 
@@ -12,6 +12,8 @@ function Clientes() {
     const [calle, setCalle] = useState("");
     const [nroCalle, setNroCalle] = useState("");
     const [ciudadId, setCiudadId] = useState("");
+    const [idBusqueda, setIdBusqueda] = useState("");
+    const [clienteActual, setClienteActual] = useState(null);
 
     useEffect(() => {cargarClientes();}, []);
 
@@ -27,6 +29,58 @@ function Clientes() {
             });
     };
 
+    const limpiarFormulario = () => {
+        setTipoDoc("");
+        setNroDoc("");
+        setApellido("");
+        setNombre("");
+        setCalle("");
+        setNroCalle("");
+        setCiudadId("");
+        setClienteActual(null);
+        setIdBusqueda("");
+    };
+
+    const buscar = () => {
+        if (!idBusqueda) {
+            alert("Ingresa un ID para buscar");
+            return;
+        }
+
+        console.log("🔍 Buscando cliente con id:", idBusqueda);
+
+        buscarCliente(parseInt(idBusqueda))
+            .then(res => {
+                console.log("✅ Cliente encontrado:", res.data);
+                const cliente = res.data;
+                setClienteActual(cliente);
+                setTipoDoc(cliente.tipo_doc || "");
+                setNroDoc(cliente.nro_doc || "");
+                setApellido(cliente.apellido || "");
+                setNombre(cliente.nombre || "");
+                setCalle(cliente.calle || "");
+                setNroCalle(cliente.nro_calle || "");
+                setCiudadId(cliente.ciudad?.id || "");
+            })
+            .catch(error => {
+                console.error("❌ Error al buscar cliente:", error.message);
+                alert("Cliente no encontrado");
+            });
+    };
+
+    const editar = (cliente) => {
+        console.log("✏️ Editando cliente:", cliente);
+        setClienteActual(cliente);
+        setTipoDoc(cliente.tipo_doc || "");
+        setNroDoc(cliente.nro_doc || "");
+        setApellido(cliente.apellido || "");
+        setNombre(cliente.nombre || "");
+        setCalle(cliente.calle || "");
+        setNroCalle(cliente.nro_calle || "");
+        setCiudadId(cliente.ciudad?.id || "");
+        window.scrollTo(0, 0);
+    };
+
     const guardar = () => {
         const cliente = {
             tipo_doc: tipoDoc,
@@ -40,24 +94,33 @@ function Clientes() {
 
         console.log("📤 Enviando cliente:", cliente);
 
-        guardarCliente(cliente)
-            .then(() => {
-                console.log("✅ Cliente guardado exitosamente");
-                cargarClientes();
-
-                setTipoDoc("");
-                setNroDoc("");
-                setApellido("");
-                setNombre("");
-                setCalle("");
-                setNroCalle("");
-                setCiudadId("");
-                alert("Cliente guardado correctamente");
-            })
-            .catch(error => {
-                console.error("❌ Error al guardar cliente:", error.message);
-                alert("Error: " + error.message);
-            });
+        if (clienteActual) {
+            // Actualizar cliente existente
+            actualizarCliente(clienteActual.id, cliente)
+                .then(() => {
+                    console.log("✅ Cliente actualizado exitosamente");
+                    cargarClientes();
+                    limpiarFormulario();
+                    alert("Cliente actualizado correctamente");
+                })
+                .catch(error => {
+                    console.error("❌ Error al actualizar cliente:", error.message);
+                    alert("Error: " + error.message);
+                });
+        } else {
+            // Crear nuevo cliente
+            guardarCliente(cliente)
+                .then(() => {
+                    console.log("✅ Cliente guardado exitosamente");
+                    cargarClientes();
+                    limpiarFormulario();
+                    alert("Cliente guardado correctamente");
+                })
+                .catch(error => {
+                    console.error("❌ Error al guardar cliente:", error.message);
+                    alert("Error: " + error.message);
+                });
+        }
     };
 
     const eliminar = (id) => {
@@ -67,6 +130,7 @@ function Clientes() {
             .then(() => {
                 console.log("✅ Cliente eliminado exitosamente");
                 cargarClientes();
+                limpiarFormulario();
                 alert("Cliente eliminado correctamente");
             })
             .catch(error => {
@@ -79,7 +143,35 @@ function Clientes() {
 
         <div className="container mt-4">
 
-            <h2>Clientes</h2>
+            <h2>Clientes {clienteActual && `(Editando ID: ${clienteActual.id})`}</h2>
+
+            <div className="row mb-3">
+                <div className="col-md-6">
+                    <input
+                        className="form-control"
+                        placeholder="Buscar cliente por ID"
+                        type="number"
+                        value={idBusqueda}
+                        onChange={(e) => setIdBusqueda(e.target.value)}
+                    />
+                </div>
+                <div className="col-md-3">
+                    <button
+                        className="btn btn-info w-100"
+                        onClick={buscar}
+                    >
+                        Buscar
+                    </button>
+                </div>
+                <div className="col-md-3">
+                    <button
+                        className="btn btn-secondary w-100"
+                        onClick={limpiarFormulario}
+                    >
+                        Limpiar
+                    </button>
+                </div>
+            </div>
 
             <div className="row">
                 <div className="col-md-6">
@@ -152,12 +244,26 @@ function Clientes() {
                 </div>
             </div>
 
-            <button
-                className="btn btn-primary mb-4"
-                onClick={guardar}
-            >
-                Guardar
-            </button>
+            <div className="row mb-3">
+                <div className="col-md-6">
+                    <button
+                        className={`btn w-100 ${clienteActual ? 'btn-warning' : 'btn-primary'}`}
+                        onClick={guardar}
+                    >
+                        {clienteActual ? 'Actualizar Cliente' : 'Guardar Cliente'}
+                    </button>
+                </div>
+                {clienteActual && (
+                    <div className="col-md-6">
+                        <button
+                            className="btn btn-secondary w-100"
+                            onClick={limpiarFormulario}
+                        >
+                            Cancelar Edición
+                        </button>
+                    </div>
+                )}
+            </div>
 
             <table className="table table-bordered">
 
@@ -191,7 +297,14 @@ function Clientes() {
                             <td>
 
                                 <button
-                                    className="btn btn-danger"
+                                    className="btn btn-warning btn-sm me-2"
+                                    onClick={() => editar(cliente)}
+                                >
+                                    Editar
+                                </button>
+
+                                <button
+                                    className="btn btn-danger btn-sm"
                                     onClick={() => eliminar(cliente.id)}
                                 >
                                     Eliminar
