@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 
+import ar.edu.utnfc.backend.EjercicioMatriz.Matriz;
+
 class MatrizTest {
 
     @Test

@@ -1,0 +1,26 @@
+Género,Cantidad de Tracks
+TV Shows,92
+Metal,373
+World,27
+Sci Fi & Fantasy,25
+Science Fiction,12
+Easy Listening,23
+Electronica/Dance,29
+Hip Hop/Rap,34
+Comedy,16
+Rock,1296
+Alternative,39
+Bossa Nova,14
+Alternative & Punk,331
+Blues,80
+Pop,47
+Heavy Metal,27
+Soundtrack,42
+Jazz,129
+Drama,63
+Latin,578
+Rock And Roll,11
+Reggae,57
+Classical,73
+R&B/Soul,60
+Opera,0

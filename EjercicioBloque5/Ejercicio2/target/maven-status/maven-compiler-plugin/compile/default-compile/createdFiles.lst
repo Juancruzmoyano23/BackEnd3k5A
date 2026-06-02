@@ -1,0 +1,8 @@
+ar\edu\utnfc\backend\service\CsvLoader.class
+ar\edu\utnfc\backend\model\EmpleadoContratado.class
+ar\edu\utnfc\backend\model\Categoria.class
+ar\edu\utnfc\backend\data\CategoriaFactory.class
+ar\edu\utnfc\backend\App.class
+ar\edu\utnfc\backend\model\Empleado.class
+ar\edu\utnfc\backend\model\EmpleadoPermanente.class
+ar\edu\utnfc\backend\service\InformesService.class
